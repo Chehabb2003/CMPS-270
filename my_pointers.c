@@ -1,4 +1,9 @@
 #include<stdio.h>
+/*void merge(char **c, char **s1,int size1, char **s2,int size2);
+Requires: 2 sorted pointer array of characters (c1,c2) and size of each arrays and
+a pointer of character array (c) with length the sum of both of their sizes.
+Effects: Modifies c by merging the c1 and c2 into c in a sorted manner 
+*/ 
 void merge(char **c, char **s1,int size1, char **s2,int size2);
 int main(){
     char *c1[]={"ab","ac"};

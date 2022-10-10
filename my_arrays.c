@@ -1,14 +1,46 @@
 #include <stdio.h>
 #include <math.h>
 #define SIZE (10)
+/*void printArray(int *array, int length)
+Requires: nothing
+Effects: Prints the index and value at each index.
+*/
 void printArray(int *array, int length);
+/*arrayHistogram(int *array, int length)
+Requires: nothing
+Effects: Prints the each values' frequency found in that array in addition to * under
+the histograms' title.
+*/
 void arrayHistogram(int *array, int length);
+/*void swapValues(int array[], int i, int j)
+Requires: nothing
+Effects: Swaps the values at indices i and j in the array namely: array[i] becomes array[j] 
+and vice versa.
+*/
 void swapValues(int array[], int i, int j);
+/*void bubbleSort(int array[],int length)
+Requires: nothing
+Effects: Sorts the given array according to increasing order.
+*/ 
 void bubbleSort(int array[],int length);
+
 int checkUnique(double array[], int j, int length); //helper fct for Histogram
 int frequency(int array[], int j, int length); //helper fct for Histogram
+/*double median(int array[], int length)
+Requires: at least one element in the array
+Effects:returns a double which is the median of that array.
+*/
 double median(int array[],int length);
+/*int mode(int *array, int length)
+Requires: at least one element in the array
+Effects: returns the most frequent element found in that array.
+*/
 int mode(int *array, int length);
+/*int isSorted(int array[], int size)
+Requires: at least one element in the array
+Effects:  Returns 1 if the list is sorted in increasing order, 0 otherwise.
+*/
+int isSorted(int array[], int size);
 int main()
 {
     int array[] = {1,2,3,3,2,1,1,1,2,3};
@@ -19,11 +51,9 @@ int main()
     printArray(array,length);
     bubbleSort(array,length);
     printArray(array,length);
-    printf("%f",median(array,length));
-    printf("%d", mode(array,length));
-
-    
-
+    printf("Median: %f\n",median(array,length));
+    printf("Mode: %d\n", mode(array,length));
+    printf("Check is array is sorted: %d",isSorted(array,length));
     return 0;
 }
 void printArray(int *array, int length)
@@ -128,4 +158,12 @@ int mode(int *array, int length){
         }
     }
     return array[msf];
+}
+int isSorted(int array[], int length){
+    for(int i=0;i<length-1;++i){
+        if(array[i]>array[i+1]){
+            return 0;
+        }
+    }
+    return 1;
 }
